@@ -2,7 +2,7 @@
   "name": "asymptote-workshop",
   "displayName": "Asymptote Workshop",
   "description": "Build, preview, and export Asymptote (.asy) files from within VS Code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "Pulseonix",
   "icon": "media/icon.png",
   "license": "MIT",

@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+src/**
+test/**
+node_modules/**
+.gitignore
+tsconfig.json
+**/*.ts
+**/*.map
+/*.svg
+/*.asy
+/*.pdf
+*.log
+*.err
+*.aux
+a.*
+good.svg

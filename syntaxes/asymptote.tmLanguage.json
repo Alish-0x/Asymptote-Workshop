@@ -1,0 +1,84 @@
+{
+  "name": "Asymptote",
+  "scopeName": "source.asymptote",
+  "fileTypes": ["asy"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#constants" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#builtins" },
+    { "include": "#structures" },
+    { "include": "#functions" },
+    { "include": "#operators" },
+    { "include": "#numbers" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.double-slash.asymptote", "match": "//.*$" },
+        { "name": "comment.block.asymptote", "begin": "/\\*", "end": "\\*/" },
+        { "name": "comment.line.number-sign.asymptote", "match": "^#.*$" }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.asymptote",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "name": "constant.character.escape.asymptote", "match": "\\\\." }]
+    },
+    "keywords": {
+      "name": "keyword.control.asymptote",
+      "match": "\\b(if|else|while|for|do|break|continue|return|exit|ifin|def|new|delete|try|catch|throw|switch|case|default)\\b"
+    },
+    "types": {
+      "name": "storage.type.asymptote",
+      "match": "\\b(void|int|real|pair|triple|transform|frame|picture|pen|string|bool|path|guide|surface|light|projection|array|surd|nothing)\\b"
+    },
+    "builtins": {
+      "patterns": [
+        { "include": "#builtinFunctions" },
+        { "include": "#builtinVariables" }
+      ]
+    },
+    "builtinFunctions": {
+      "name": "support.function.asymptote",
+      "match": "\\b(draw|fill|filldraw|label|shipout|unfill|clip|layer|add|attach|delete|texpath|texpreview|btex|usepackage|graphic|import|include|usepackage|size|unitsize|defaultpen|settings|pair|triple|X|Y|Z|N|S|E|W|NE|NW|SE|SW|fontsize|dot|dotfactor|arrow|arrowhead|BeginArrow|EndArrow|MidArrow|BeginBar|EndBar|Bar|pen|rgb|cmyk|gray|hsv|colors|black|white|red|green|blue|cyan|magenta|yellow|opacity|solid|dashed|dotted|longdashed|dashdotdotted|linewidth|linetype|font|scale|xscale|yscale|rotate|shift|reflect|slant|transform)\\b"
+    },
+    "builtinVariables": {
+      "name": "variable.language.asymptote",
+      "match": "\\b(this|currentpicture|currentpen|currentlight|pi|e|I|E|degrees|radians|infinity)\\b"
+    },
+    "structures": {
+      "name": "keyword.other.struct.asymptote",
+      "match": "\\b(struct|import|include|from|access|private|protected|public|static|operator|typedef|restricted)\\b"
+    },
+    "functions": {
+      "name": "entity.name.function.asymptote",
+      "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+    },
+    "operators": {
+      "name": "keyword.operator.asymptote",
+      "match": "(\\+\\+|--|&&|\\|\\||==|!=|<=|>=|<<|>>|[+\\-*/%^<>=!&|~])"
+    },
+    "numbers": {
+      "name": "constant.numeric.asymptote",
+      "match": "\\b(\\d+\\.?\\d*([eE][+-]?\\d+)?(\\+\\d+\\.?\\d*[iIjJ])?|\\.\\d+([eE][+-]?\\d+)?)\\b"
+    },
+    "constants": {
+      "name": "constant.language.asymptote",
+      "match": "\\b(true|false|null|empty)\\b"
+    },
+    "punctuation": {
+      "patterns": [
+        { "name": "punctuation.definition.brace.curly.asymptote", "match": "[{}]" },
+        { "name": "punctuation.definition.brace.square.asymptote", "match": "[\\[\\]]" },
+        { "name": "punctuation.definition.brace.round.asymptote", "match": "[()]" },
+        { "name": "punctuation.separator.comma.asymptote", "match": "," },
+        { "name": "punctuation.terminator.semicolon.asymptote", "match": ";" }
+      ]
+    }
+  }
+}

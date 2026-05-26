@@ -1,0 +1,141 @@
+{
+  "Basic 2D line drawing": {
+    "prefix": "drawline",
+    "body": [
+      "import graph;",
+      "size(${1:400});",
+      "",
+      "draw((${2:0},${3:0}) -- (${4:1},${5:1}), ${6:blue});",
+      ""
+    ],
+    "description": "Basic 2D line drawing"
+  },
+  "Axes with labels": {
+    "prefix": "axes",
+    "body": [
+      "import graph;",
+      "size(${1:400});",
+      "",
+      "xaxis(\"$x$\", BottomTop, Ticks);",
+      "yaxis(\"$y$\", LeftRight, Ticks);",
+      ""
+    ],
+    "description": "Draw axes with labels and ticks"
+  },
+  "Function plot": {
+    "prefix": "plot",
+    "body": [
+      "import graph;",
+      "size(${1:400});",
+      "",
+      "real f(real x) { return ${2:x^2}; }",
+      "draw(graph(f, ${3:-2}, ${4:2}), ${5:red});",
+      "",
+      "xaxis(\"$x$\", BottomTop, Ticks);",
+      "yaxis(\"$y$\", LeftRight, Ticks);",
+      ""
+    ],
+    "description": "Plot a function"
+  },
+  "Fill area": {
+    "prefix": "fill",
+    "body": [
+      "size(${1:400});",
+      "",
+      "filldraw((${2:0},${3:0}) -- (${4:1},${5:0}) -- (${6:0.5},${7:1}) -- cycle, ${8:lightgreen}, ${9:black});",
+      ""
+    ],
+    "description": "Fill and draw a shape"
+  },
+  "Grid": {
+    "prefix": "grid",
+    "body": [
+      "import graph;",
+      "size(${1:400});",
+      "",
+      "for (int i = 0; i <= ${2:5}; ++i) {",
+      "  draw((${3:i},0) -- (${3:i},${4:5}), gray);",
+      "  draw((0,${3:i}) -- (${4:5},${3:i}), gray);",
+      "}",
+      ""
+    ],
+    "description": "Draw a grid"
+  },
+  "Label with math": {
+    "prefix": "label",
+    "body": [
+      "label(\"$\\\\displaystyle \\\\int_{${1:a}}^{${2:b}} f(x)\\\\,dx$\", (${3:0},${4:0}), ${5:SE});",
+      ""
+    ],
+    "description": "Label with LaTeX math"
+  },
+  "3D surface": {
+    "prefix": "surface3d",
+    "body": [
+      "import graph3;",
+      "import palette;",
+      "size(${1:400});",
+      "",
+      "currentprojection=orthographic(${2:5},${3:4},${4:2});",
+      "",
+      "real f(pair z) { return ${5:sin(z.x)*cos(z.y)}; }",
+      "surface s = surface(f, (${6:-pi},${7:-pi}), (${8:pi},${9:pi}), ${10:20});",
+      "s.colors(palette(s.map(zpart), Rainbow));",
+      "draw(s);",
+      ""
+    ],
+    "description": "3D surface plot with color palette"
+  },
+  "Import packages": {
+    "prefix": "imports",
+    "body": [
+      "import graph;",
+      "import geometry;",
+      "",
+      ""
+    ],
+    "description": "Common Asymptote imports"
+  },
+  "Full document": {
+    "prefix": "asyfile",
+    "body": [
+      "import graph;",
+      "import geometry;",
+      "",
+      "size(${1:400});",
+      "",
+      "${0}",
+      ""
+    ],
+    "description": "Basic Asymptote file template"
+  },
+  "Circle": {
+    "prefix": "circle",
+    "body": [
+      "draw(circle((${1:0},${2:0}), ${3:1}), ${4:blue});",
+      ""
+    ],
+    "description": "Draw a circle"
+  },
+  "Arrow": {
+    "prefix": "arrow",
+    "body": [
+      "draw((${1:0},${2:0}) -- (${3:1},${4:1}), ${5:blue}, Arrow);",
+      ""
+    ],
+    "description": "Draw a line with arrow"
+  },
+  "Picture with save/restore": {
+    "prefix": "picture",
+    "body": [
+      "picture ${1:pic};",
+      "size(${1:pic}, ${2:200});",
+      "",
+      "draw(${1:pic}, (${3:0},${4:0}) -- (${5:1},${6:1}), ${7:red});",
+      "",
+      "add(${1:pic});",
+      ""
+    ],
+    "description": "Create and use a picture object"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "name": "asymptote-workshop",
+  "displayName": "Asymptote Workshop",
+  "description": "Build, preview, and export Asymptote (.asy) files from within VS Code",
+  "version": "0.1.0",
+  "publisher": "asymptote-workshop",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alish-0x/Asymptote-Workshop.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Visualization",
+    "Formatters"
+  ],
+  "keywords": [
+    "asymptote",
+    "asy",
+    "vector graphics",
+    "preview",
+    "build"
+  ],
+  "activationEvents": [
+    "onLanguage:asymptote",
+    "onCommand:asy-workshop.build",
+    "onCommand:asy-workshop.preview",
+    "onCommand:asy-workshop.export",
+    "onCommand:asy-workshop.buildAnimation"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "asymptote",
+        "aliases": [
+          "Asymptote",
+          "asy"
+        ],
+        "extensions": [
+          ".asy"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "asymptote",
+        "scopeName": "source.asymptote",
+        "path": "./syntaxes/asymptote.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "asymptote",
+        "path": "./snippets/asymptote.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "asy-workshop.build",
+        "title": "Asymptote Workshop: Build Asymptote file"
+      },
+      {
+        "command": "asy-workshop.buildWithRecipe",
+        "title": "Asymptote Workshop: Build with recipe..."
+      },
+      {
+        "command": "asy-workshop.preview",
+        "title": "Asymptote Workshop: Preview SVG"
+      },
+      {
+        "command": "asy-workshop.exportPDF",
+        "title": "Asymptote Workshop: Export as PDF"
+      },
+      {
+        "command": "asy-workshop.exportSVG",
+        "title": "Asymptote Workshop: Export as SVG"
+      },
+      {
+        "command": "asy-workshop.exportPNG",
+        "title": "Asymptote Workshop: Export as PNG"
+      },
+      {
+        "command": "asy-workshop.exportEPS",
+        "title": "Asymptote Workshop: Export as EPS"
+      },
+      {
+        "command": "asy-workshop.clean",
+        "title": "Asymptote Workshop: Clean auxiliary files"
+      },
+      {
+        "command": "asy-workshop.viewLog",
+        "title": "Asymptote Workshop: View build log"
+      },
+      {
+        "command": "asy-workshop.kill",
+        "title": "Asymptote Workshop: Kill current build"
+      },
+      {
+        "command": "asy-workshop.toggleAutoBuild",
+        "title": "Asymptote Workshop: Toggle auto build on save"
+      },
+      {
+        "command": "asy-workshop.lint",
+        "title": "Asymptote Workshop: Lint current file"
+      },
+      {
+        "command": "asy-workshop.buildAnimation",
+        "title": "Asymptote Workshop: Build animation"
+      },
+      {
+        "command": "asy-workshop.installAsy",
+        "title": "Asymptote Workshop: Install Asymptote"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "asy-workshop.build",
+        "key": "ctrl+alt+b",
+        "when": "editorLangId == asymptote"
+      },
+      {
+        "command": "asy-workshop.preview",
+        "key": "ctrl+alt+v",
+        "when": "editorLangId == asymptote"
+      },
+      {
+        "command": "asy-workshop.lint",
+        "key": "ctrl+alt+l",
+        "when": "editorLangId == asymptote"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "asy-workshop.build",
+          "group": "asy-workshop@1",
+          "when": "editorLangId == asymptote"
+        },
+        {
+          "command": "asy-workshop.preview",
+          "group": "asy-workshop@2",
+          "when": "editorLangId == asymptote"
+        },
+        {
+          "command": "asy-workshop.lint",
+          "group": "asy-workshop@2",
+          "when": "editorLangId == asymptote"
+        },
+        {
+          "submenu": "asy-workshop.exportSubmenu",
+          "group": "asy-workshop@3",
+          "when": "editorLangId == asymptote"
+        },
+        {
+          "submenu": "asy-workshop.recipeSubmenu",
+          "group": "asy-workshop@4",
+          "when": "editorLangId == asymptote"
+        }
+      ],
+      "asy-workshop.exportSubmenu": [
+        {
+          "command": "asy-workshop.exportPDF"
+        },
+        {
+          "command": "asy-workshop.exportSVG"
+        },
+        {
+          "command": "asy-workshop.exportPNG"
+        },
+        {
+          "command": "asy-workshop.exportEPS"
+        }
+      ],
+      "asy-workshop.recipeSubmenu": [
+        {
+          "command": "asy-workshop.buildWithRecipe"
+        },
+        {
+          "command": "asy-workshop.buildAnimation"
+        },
+        {
+          "command": "asy-workshop.clean"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "asy-workshop.exportSubmenu",
+        "label": "Export Asymptote"
+      },
+      {
+        "id": "asy-workshop.recipeSubmenu",
+        "label": "More"
+      }
+    ],
+    "configuration": {
+      "title": "Asymptote Workshop",
+      "properties": {
+        "asy-workshop.command": {
+          "type": "string",
+          "default": "asy",
+          "description": "Path to the Asymptote executable"
+        },
+        "asy-workshop.autoBuildOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically build on save"
+        },
+        "asy-workshop.autoOpenPreview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open preview panel on successful build"
+        },
+        "asy-workshop.outputFormat": {
+          "type": "string",
+          "enum": [
+            "svg",
+            "pdf",
+            "png"
+          ],
+          "default": "svg",
+          "description": "Default output format for builds"
+        },
+        "asy-workshop.buildArgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Extra CLI arguments passed to asy during build (e.g. -render 4 for 3D)"
+        },
+        "asy-workshop.previewScale": {
+          "type": "number",
+          "default": 1,
+          "description": "Scale factor for preview"
+        },
+        "asy-workshop.showBuildLog": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show build log on build"
+        },
+        "asy-workshop.lintOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Lint Asymptote files on save (runs asy -o /dev/null)"
+        },
+        "asy-workshop.recipes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "format": { "type": "string" },
+              "category": { "type": "string", "enum": ["2D", "3D"] },
+              "args": { "type": "array", "items": { "type": "string" } },
+              "description": { "type": "string" }
+            },
+            "required": ["name", "format"]
+          },
+          "default": [],
+          "description": "Custom build recipes. Merged with built-in recipes; same name overrides default."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}

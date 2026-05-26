@@ -2,8 +2,10 @@ cff-version: 1.2.0
 message: "If you use Asymptote Workshop in your work, please cite it as below."
 authors:
   - family-names: "Alish"
-    given-names: "0x"
+    given-names: ""
     orcid: "https://github.com/Alish-0x"
+  - family-names: "Sewak"
+    given-names: ""
 title: "Asymptote Workshop — VS Code extension for Asymptote vector graphics"
 version: 0.1.0
 date-released: 2026-05-25

@@ -3,7 +3,7 @@
   "displayName": "Asymptote Workshop",
   "description": "Build, preview, and export Asymptote (.asy) files from within VS Code",
   "version": "0.1.0",
-  "publisher": "asymptote-workshop",
+  "publisher": "Pulseonix",
   "license": "MIT",
   "repository": {
     "type": "git",
